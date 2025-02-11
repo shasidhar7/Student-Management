@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="login.css" />
+    <meta charset="ISO-8859-1" />
+    <title>LOGIN</title>
+  </head>
+  <body>
+    <div class="form-container">
+      <h1 id="main-heading">Student Management Portal</h1>
+      <form id="loginForm">
+        <h1>Login</h1>
+
+        <div class="container">
+          <label class="text">Email</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter your email"
+            required
+            class="input"
+          />
+          <br />
+
+          <label class="text">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            required
+            class="input"
+          />
+
+          <p id="error-message" class="error"></p>
+          <!-- Error message -->
+        </div>
+
+        <input type="submit" class="btn" value="LOGIN" />
+        <br />
+
+        <!-- Forgot Password (Initially Hidden) -->
+        <p id="forgot-password" class="text" style="display: none">
+          <a href="forgot-password.html">Forgot Password?</a>
+        </p>
+
+        <p class="text">
+          Don't have an account? &nbsp;<a href="registration.html">Register</a>
+        </p>
+      </form>
+    </div>
+
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Dummy user credentials
+          const correctEmail = "admin@example.com";
+          const correctPassword = "admin123";
+
+          // Get input values
+          let email = document.getElementById("email").value;
+          let password = document.getElementById("password").value;
+          let errorMessage = document.getElementById("error-message");
+          let forgotPassword = document.getElementById("forgot-password");
+
+          if (email === correctEmail && password === correctPassword) {
+            // Successful login (Redirect to dashboard)
+            window.location.href = "dashboard.html";
+          } else {
+            // Show error message
+            errorMessage.textContent = "Invalid email or password!";
+
+            // Show forgot password link
+            forgotPassword.style.display = "block";
+          }
+        });
+    </script>
+     
+  </body>
+</html>
